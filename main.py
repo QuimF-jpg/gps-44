@@ -1,7 +1,9 @@
-# Prova de CI/CD
+# main.py
+
+"""Mòdul principal per a la transformació de cadenes de text."""
+
 import transform
 
-# Comentari afegit per comprovar la correcta execució de CI
 def main():
     """Core de la prova"""
     string = input("Introdueix un string: ")
