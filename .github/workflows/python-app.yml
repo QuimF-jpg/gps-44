@@ -1,16 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 name: Python application
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,36 +8,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        python-version: "3.10"
+        python-version: '3.8'  # Canvia a la versió de Python que necessitis
     - name: Install dependencies
       run: |
-        run: | 
-  python -m pip install --upgrade pip 
-  pip install flake8 pytest coverage 
-  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi 
-
-- name: Lint with flake8
-  run: | 
-    # stop the build if there are Python syntax errors or undefined names
-    flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics 
-    # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-    flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-- name: Run tests with coverage
-  run: |
-    # run tests and measure coverage
-    coverage run -m pytest
-    # generate coverage report
-    coverage report
-    # optionally, generate an HTML report
-    coverage html
-
-        
-    - name: Test with pytest
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Instal·la les dependències
+    - name: Lint with pylint
       run: |
-        pytest test.py
-      
+        pip install pylint
+        pylint main.py transform.py test.py  # Comprova els fitxers Python
+    - name: Run tests
+      run: |
+        python -m unittest discover  # Executa els tests
+    - name: Run coverage
+      run: |
+        pip install coverage
+        coverage run -m unittest discover  # Executa els tests amb cobertura
+        coverage report  # Mostra el report de cobertura
