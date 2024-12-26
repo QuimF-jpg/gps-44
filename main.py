@@ -1,17 +1,17 @@
-""" prova de CI/CD"""
+# Prova de CI/CD
 import transform
 
 # Comentari afegit per comprovar la correcta execució de CI
 def main():
-    """ core del la prova"""
-    string = input("Introdueix un string:")
+    """Core de la prova"""
+    string = input("Introdueix un string: ")
     
     print("Quina transformació vols?")
-    print("[1] Text amb tot majuscules")
-    print("[2] Text amb tot minúscuies")
-    print("[3] Text capitalitzat ")
+    print("[1] Text amb tot majúscules")
+    print("[2] Text amb tot minúscules")
+    print("[3] Text capitalitzat")
 
-    opcio = input("opció escollida: ")
+    opcio = input("Opció escollida: ")
 
     if opcio == "1":
         print(transform.to_upper_case(string))
@@ -20,8 +20,7 @@ def main():
     elif opcio == "3":
         print(transform.to_capitalize(string))
     else:
-        print("opció no reconegudda")
-
+        print("Opció no reconeguda")
 
 if __name__ == '__main__':
     main()
