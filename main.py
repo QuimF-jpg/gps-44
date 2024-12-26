@@ -7,7 +7,6 @@ import transform
 def main():
     """Core de la prova"""
     string = input("Introdueix un string: ")
-    
     print("Quina transformació vols?")
     print("[1] Text amb tot majúscules")
     print("[2] Text amb tot minúscules")
