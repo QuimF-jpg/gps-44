@@ -3,7 +3,7 @@
 """Mòdul principal per a la transformació de cadenes de text."""
 
 import transform
-
+# Comentari afegit per comprovar funcionament correcte del CI
 def main():
     """Core de la prova"""
     string = input("Introdueix un string: ")
