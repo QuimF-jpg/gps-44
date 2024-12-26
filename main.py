@@ -1,7 +1,7 @@
 """ prova de CI/CD"""
 import transform
 
-""" Comentari afegit per comprovar la correcta execució de CI """
+# Comentari afegit per comprovar la correcta execució de CI
 def main():
     """ core del la prova"""
     string = input("Introdueix un string:")
