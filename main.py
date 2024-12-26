@@ -1,11 +1,11 @@
 """ prova de CI/CD"""
 import transform
 
-
+""" Comentari afegit per comprovar la correcta execució de CI """
 def main():
     """ core del la prova"""
     string = input("Introdueix un string:")
-
+    
     print("Quina transformació vols?")
     print("[1] Text amb tot majuscules")
     print("[2] Text amb tot minúscuies")
